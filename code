@@ -2,9 +2,9 @@ int inch = 0;
 int cm = 0;
 long totaldistance(int trigpin, int echopin)
 {
-  pinMode(trigpin, OUTPUT); 
+  pinMode(trigpin, OUTPUT);                 //output for trigpin is set 
   digitalWrite(trigpin, LOW);
-  delay(1500);
+  delay(1500);                               //delay of 1500 milliseconds is given
   digitalWrite(trigpin, HIGH);
   delay(900);
   digitalWrite(trigpin, LOW);
@@ -12,16 +12,16 @@ long totaldistance(int trigpin, int echopin)
   return pulseIn(echopin, HIGH);
 }
 
-void setup()
+void setup()                //all the pins are initialised
 {
 
-  Serial.begin(9600);
+  Serial.begin(9600);               //baud rate is 9600
   pinMode(LED_BUILTIN, OUTPUT);
 
 }
 void loop()
 {
-  cm = 0.01723 * totaldistance(8, 8);
+  cm = 0.01723 * totaldistance(8, 8);           
   inch = (cm / 2.54);
   if (cm>100)
   {
